@@ -93,24 +93,28 @@ To combine two branches we can use **- git merge** or **- git rebase**.
 
 Think it like we are on the main branch : *- git merge childBranch* --> loads all changes from childBranch to mainBranch, loads all log commit history to main log commit history and creates a new commit about merged.
 
-----------------------------------------------------------------------|
-main log  : -A-B-C             |  after merged main : -A-B-C-D-E-F-G  |
-child log : -A-B-C-D-E-F       |                                      |
-----------------------------------------------------------------------|
+--------------------------------------------------------------------------------------------------------------------------------------
+main log  : -A-B-C              --->>>   after merged main :-A-B-C-D-E-F-G 
+child log :-A-B-C-D-E-F           
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 *- git merge --squash childBranch* -->  loads all changes from childBranch to mainBranch but do not loads commit history and do not creates a new commit about merged, if you use this you need to commit a new message after merged.
 
-----------------------------------------------------------------------|
-main log  : -A-B-C             |  after merged main : -A-B-C-G        |
-child log : -A-B-C-D-E-F       |                                      |
-----------------------------------------------------------------------|
+---------------------------------------------------------------------------------------------------------------------------------------
+main log  : -A-B-C              --->>>   after merged main : -A-B-C-G        
+child log : -A-B-C-D-E-F  
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
 
 *-git rebase childBranch* --> Doing same thing with merge but do not add a commit about merged. Seems like all operations commited in the main.
 
-----------------------------------------------------------------------|
-main log  : -A-B-C             |  after merged main : -A-B-C-D-E-F    |
-child log : -A-B-C-D-E-F       |                                      |
-----------------------------------------------------------------------|
+---------------------------------------------------------------------------------------------------------------------------------------
+main log  : -A-B-C              --->>>  after merged main : -A-B-C-D-E-F    
+child log : -A-B-C-D-E-F
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 ![img](readme_img/12.png)
 
@@ -123,10 +127,11 @@ child log : -A-B-C-D-E-F       |                                      |
 
 Think your log history like this : A-B-C-D
 
-|---------------------|--------------------|
+--------------------------------------------
 | A:-> A file added   | C:-> C file added  |
-| B:-> B file added   | D:-> D file added  |
 |---------------------|--------------------|
+| B:-> B file added   | D:-> D file added  |
+
 
 And you do not want C file in your project anymore. So you can use **- git revert**.
 
