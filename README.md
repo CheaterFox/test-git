@@ -171,7 +171,7 @@ If you are done! and you want to save your project in the remote repository you 
 
 *- git remote add origin ...your_remote_repository_adress.git...* 
 
-*- git push -u add origin main* 
+*- git push -u origin main* 
 
 ![img](readme_img/17.png)
 
